@@ -7,18 +7,26 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function submitFunc(){
   const id = document.getElementById('inputBusca').value;
-  console.log(id)
+  if (id === '12345'){
+    const user = {
+      name: 'Aziz Shavershian',
+      dataObito: '05/08/2011',
+      locCova: 'Cemitério 666, Rua 1, Quadra A, Tumulo 420'
+    }
+    window.localStorage.setItem('currentUser', JSON.stringify(user));
+    window.location.href = (window.location.href + 'profile')
+  }
+  else {
+    window.localStorage.setItem('currentUser', '');
+  }
 }
 
 export function HomePage() {
   return (
     <div className="App">
-
       <main className="App-main">
         <div className='container'>
-          <p className='shortTitle'>
-            SGC
-          </p>
+          <p className='shortTitle'>SGC</p>
           <h1 className='mainTitle'>Sistema de Gerenciamento de Cemitério</h1>
           <div className='inputContainer'>
             <input type="text" placeholder='Código de consulta...' id='inputBusca'></input>
