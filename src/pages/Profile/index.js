@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 import ConditionalRender from '../../components/Profile'
 
 export function ProfilePage() {
+
+  const [foundUser, setFoundUser] = useState()
+
+  useEffect(() => {
+    const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
+    if (currentUser) {
+      setFoundUser(true);
+    } else {
+      setFoundUser(false);
+    }
+  }, [])
+
   return (
     <div className="App">
       <div className="App-main">
@@ -11,7 +23,7 @@ export function ProfilePage() {
           <p>
             Sistema de Gerenciamento de Cemitério
           </p>
-          <ConditionalRender hasUser={false} />
+          <ConditionalRender hasUser={foundUser} />
           <Link to="/" className="App-link">
             Previous Page
           </Link>

@@ -23,7 +23,7 @@ function submitFunc() {
     window.location.href = (window.location.href + 'profile')
   }
   else {
-    window.localStorage.setItem('currentUser', '');
+    window.localStorage.removeItem('currentUser');
     window.location.href = (window.location.href + 'profile')
   }
 }
