@@ -4,20 +4,27 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-
-function submitFunc(){
+function submitFunc() {
   const id = document.getElementById('inputBusca').value;
-  if (id === '12345'){
+  if (id === '12345') {
     const user = {
-      name: 'Aziz Shavershian',
-      dataObito: '05/08/2011',
-      locCova: 'Cemitério 666, Rua 1, Quadra A, Tumulo 420'
+      id: '12345',
+      pessoaPublica: true,
+      cemiterio: 'Cemitério Municipal, Joaquim Botas Margarido, 300',
+      nome: 'Aziz Shavershian',
+      quadra: 'Quadra 1',
+      rua: 'Rua 5',
+      numero: 'Cova 666',
+      certidaoObito: '123456',
+      dataNasc: '24/03/1989',
+      dataObito: '05/08/2011'
     }
     window.localStorage.setItem('currentUser', JSON.stringify(user));
     window.location.href = (window.location.href + 'profile')
   }
   else {
     window.localStorage.setItem('currentUser', '');
+    window.location.href = (window.location.href + 'profile')
   }
 }
 
@@ -29,8 +36,15 @@ export function HomePage() {
           <p className='shortTitle'>SGC</p>
           <h1 className='mainTitle'>Sistema de Gerenciamento de Cemitério</h1>
           <div className='inputContainer'>
-            <input type="text" placeholder='Código de consulta...' id='inputBusca'></input>
-            <FontAwesomeIcon icon={faMagnifyingGlass} color="#000" onClick={submitFunc} id="searchIcon"/>
+            <input 
+              type="text" 
+              placeholder='Código de consulta...' 
+              id='inputBusca'></input>
+            <FontAwesomeIcon 
+              icon={faMagnifyingGlass} 
+              color="#000" 
+              onClick={submitFunc} 
+              id="searchIcon" />
           </div>
           <Link to="/profile" className="App-link">
             Next Page
