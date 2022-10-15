@@ -1,9 +1,16 @@
 import React from 'react'
 
-export default function ProfileData(){
-    return (
-        <div>
+function ConditionalRender(props) {
+    if (props.hasUser) {
+        return (
             <p>Achou perfil</p>
-        </div>
+        )
+    }
+    return (
+        <p>
+            Não achou perfil
+        </p>
     )
 }
+
+export default ConditionalRender;

@@ -1,8 +1,7 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import ProfileData from '../../components/Profile';
-import { NotFound } from '../../components/404';
+import ConditionalRender from '../../components/Profile'
 
 export function ProfilePage() {
   return (
@@ -12,8 +11,7 @@ export function ProfilePage() {
           <p>
             Sistema de Gerenciamento de Cemitério
           </p>
-          <ProfileData />
-          <NotFound />
+          <ConditionalRender hasUser={false} />
           <Link to="/" className="App-link">
             Previous Page
           </Link>
