@@ -1,0 +1,81 @@
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  background-color: #282c34;
+  text-align: center;
+}
+
+.App-header {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-line {
+  height: 50%;
+  width: 2px;
+  background-color: white;
+}
+
+.App-main {
+  height: 100%;
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.shortTitle{
+  font-size: 48px;
+}
+
+.mainTitle {
+  font-size: 16px;
+  margin: 0.5em 0;
+}
+
+#inputBusca {
+  width: 320px;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  border: none;
+  margin-right: 8px;
+}
+
+.inputContainer{
+  background-color: white;
+  padding-bottom: 5px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: .5em;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(84, 84, 84, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2em;
+}
+
+#searchIcon{
+  cursor: pointer;
+}
