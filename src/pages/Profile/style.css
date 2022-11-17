@@ -58,3 +58,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+#userIcon {
+  width: 35%;
+}
+
+.mapsLink{
+  cursor: pointer;
+}

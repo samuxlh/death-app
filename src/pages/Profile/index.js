@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
 import ConditionalRender from '../../components/Profile'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 export function ProfilePage() {
 
   const [foundUser, setFoundUser] = useState()
@@ -10,7 +10,7 @@ export function ProfilePage() {
   useEffect(() => {
     const currentUser = JSON.parse(window.localStorage.getItem('currentUser'))
     if (currentUser) {
-      setFoundUser(true);
+      setFoundUser(currentUser);
     } else {
       setFoundUser(false);
     }
@@ -20,13 +20,17 @@ export function ProfilePage() {
     <div className="App">
       <div className="App-main">
         <main className="container">
+          <a href='/'>
+          <FontAwesomeIcon
+            className='fa-2x'
+            icon={faArrowLeftLong}
+            color="#FFF"
+            id="userIcon" />
+          </a>
           <p>
             Sistema de Gerenciamento de Cemitério
           </p>
           <ConditionalRender hasUser={foundUser} />
-          <Link to="/" className="App-link">
-            Previous Page
-          </Link>
         </main>
       </div>
     </div>

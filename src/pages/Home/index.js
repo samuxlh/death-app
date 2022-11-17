@@ -46,9 +46,9 @@ export function HomePage() {
               onClick={submitFunc} 
               id="searchIcon" />
           </div>
-          <Link to="/profile" className="App-link">
+          {/* <Link to="/profile" className="App-link">
             Next Page
-          </Link>
+          </Link> */}
         </div>
       </main>
     </div>
