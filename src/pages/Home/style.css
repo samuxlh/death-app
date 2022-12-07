@@ -81,3 +81,7 @@
 #searchIcon{
   cursor: pointer;
 }
+
+.smallText{
+  font-size: 14px;
+}

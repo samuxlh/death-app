@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faLocationDot, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 function ConditionalRender(props) {
     if (props.hasUser) {
@@ -15,10 +15,10 @@ function ConditionalRender(props) {
                 <p>{props.hasUser.cemiterio}</p>
                 <p>{props.hasUser.quadra}, {props.hasUser.rua}</p>
                 <p>{props.hasUser.numero}</p>
-                <FontAwesomeIcon 
+                <FontAwesomeIcon
                     className='fa-2x mapsLink'
                     icon={faLocationDot}
-                    onClick={()=>{
+                    onClick={() => {
                         const adress = 'https://www.google.com/maps/search/' + props.hasUser.cemiterio
                         window.open(adress, '_blank')
                     }}
@@ -27,9 +27,16 @@ function ConditionalRender(props) {
         )
     }
     return (
-        <p>
-            Não achou perfil
-        </p>
+        <div>
+            <FontAwesomeIcon
+                className='fa-5x'
+                icon={faExclamationTriangle}
+                color="#FFF"
+                id="warningIcon" />
+            <p>
+                Perfil não encontrado.
+            </p>
+        </div>
     )
 }
 
