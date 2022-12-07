@@ -8,20 +8,11 @@ import { collection, getDocs } from "firebase/firestore"
 
 function submitFunc() {
   const id = document.getElementById('inputBusca').value;
-  if (id === '12345') {
-    const user = {
-      id: '12345',
-      pessoaPublica: true,
-      cemiterio: 'Cemitério Municipal, Joaquim Botas Margarido, 300',
-      nome: 'Aziz Shavershian',
-      quadra: 'Quadra 1',
-      rua: 'Rua 5',
-      numero: 'Cova 666',
-      certidaoObito: '123456',
-      dataNasc: '24/03/1989',
-      dataObito: '05/08/2011'
-    }
-    window.localStorage.setItem('currentUser', JSON.stringify(user));
+  var get =  JSON.parse(localStorage.getItem('dbUsers'));
+  var currentUser = get.find(o => o.uid === id)
+  console.log(currentUser)
+  if (currentUser) {
+    window.localStorage.setItem('currentUser', JSON.stringify(currentUser));
     window.location.href = (window.location.href + 'profile')
   }
   else {
@@ -38,6 +29,7 @@ export function HomePage() {
         const newData = querySnapshot.docs
           .map((doc) => ({ ...doc.data(), id: doc.id }));
         setJazigo(newData);
+        window.localStorage.setItem('dbUsers', JSON.stringify(newData));
         console.log(jazigo, newData);
       })
   }
